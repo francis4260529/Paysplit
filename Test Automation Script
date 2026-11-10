@@ -1,0 +1,45 @@
+import { test, expect } from '@playwright/test';
+
+//npx playwright test ./tests/paySplit.spec.js --project chromium --headed//
+
+//npx playwright test ./tests/paySplit.spec.js --project firefox --headed//
+
+//npm init playwright@latest//
+//npx playwright test --ui//francis4260523+30@gmail.com//
+test('PaySplit Overview End to End Test', async ({ page }) => {
+  await page.goto('https://paysplit-dev-fe-14573850302.europe-west1.run.app/');
+
+  await page.pause();
+ await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('textbox', { name: 'Email' }).click();
+  await page.getByRole('textbox', { name: 'Email' }).fill('francis4260523@gmail.com');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('Scholl@1234');
+  await page.getByRole('button', { name: 'Confirm' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('Scholl@123');
+  await page.getByRole('button', { name: 'Confirm' }).click();
+  await page.getByRole('button', { name: 'Show password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('School@123');
+  await page.getByRole('button', { name: 'Hide password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('School@1234');
+  await page.getByRole('button', { name: 'Confirm' }).click();
+  await page.getByRole('button', { name: 'Create Wallet' }).click();
+  await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Dashboard' }).click();
+  await page.getByRole('link', { name: 'Transactions' }).click();
+  await page.getByRole('link', { name: 'Destination' }).click();
+  await page.getByRole('link', { name: 'Split Rules' }).click();
+  await page.getByRole('button', { name: 'Search' }).click();
+  await page.getByRole('button', { name: 'Search' }).click();
+  await page.getByRole('button', { name: 'Search' }).click();
+  await page.getByRole('button', { name: 'Notifications' }).click();
+  await page.getByRole('button', { name: 'Account menu for Francis' }).click();
+  await page.getByRole('button', { name: 'Close' }).click();
+  await page.getByRole('button', { name: 'Account menu for Francis' }).click();
+  await page.getByRole('button', { name: 'Complete KYC →' }).click();
+  await page.getByRole('button', { name: 'Account menu for Francis' }).click();
+  await page.getByRole('button', { name: 'Log Out' }).click();
+  await page.getByRole('button', { name: 'Sign out' }).click();
+});
